@@ -59,8 +59,8 @@ export function Header() {
           transition={{ duration: 0.5 }}
           className="flex-shrink-0"
         >
-          <Link href="#home" className="text-xl font-medium">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">Portfolio</span>
+          <Link href="#home" className="text-2xl font-bold">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500">BHUSH</span>
           </Link>
         </motion.div>
 

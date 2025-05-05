@@ -8,31 +8,39 @@ const skills = [
   {
     category: "Frontend",
     items: [
-      { name: "React", level: 90, icon: "⚛️" },
-      { name: "Next.js", level: 85, icon: "▲" },
-      { name: "TypeScript", level: 80, icon: "🔷" },
-      { name: "Tailwind CSS", level: 90, icon: "🎨" },
-      { name: "Framer Motion", level: 75, icon: "🎭" },
+      { name: "React", level: 80, icon: "/skills/react.png" },
+      { name: "Next.js", level: 90, icon: "/skills/next.png" },
+      { name: "TypeScript", level: 80, icon: "/skills/ts.png" },
+      { name: "Tailwind CSS", level: 90, icon: "/skills/tailwind.png" },
+      { name: "Framer Motion", level: 75, icon: "/skills/framer.png" },
+       { name: "HTML", level: 75, icon: "/skills/html.png" },
+       { name: "CSS", level: 80, icon: "/skills/css.png" },
     ],
   },
   {
     category: "Backend",
     items: [
-      { name: "Node.js", level: 85, icon: "🟢" },
-      { name: "Express", level: 80, icon: "🚂" },
-      { name: "MongoDB", level: 75, icon: "🍃" },
-      { name: "PostgreSQL", level: 70, icon: "🐘" },
-      { name: "GraphQL", level: 65, icon: "◼️" },
+      { name: "Node.js", level: 85, icon: "/skills/node-js.png" },
+      { name: "Express", level: 80, icon: "/skills/express.png" },
+      { name: "MongoDB", level: 75, icon: "/skills/mongodb.png" },
+      { name: "PostgreSQL", level: 70, icon: "/skills/postger.png" },
+      { name: "GraphQL", level: 65, icon: "/skills/graphql.png" },
+      { name: "Prisma", level: 85, icon: "/skills/prisma.webp" },
+      { name: "PHP", level: 85, icon: "/skills/php.png" },
+       { name: "MySQL", level: 85, icon: "/skills/mysql.png" },
     ],
   },
   {
     category: "Tools",
     items: [
-      { name: "Git", level: 85, icon: "🔄" },
-      { name: "Docker", level: 70, icon: "🐳" },
-      { name: "AWS", level: 65, icon: "☁️" },
-      { name: "Jest", level: 75, icon: "🃏" },
-      { name: "Figma", level: 80, icon: "🎨" },
+      { name: "Git", level: 85, icon: "/skills/lockMain.png" },
+      { name: "Docker", level: 70, icon: "/skills/docker.webp" },
+      { name: "Firebase", level: 65, icon: "/skills/firebase.png" },
+      { name: "Auth", level: 75, icon: "/skills/logo-sm.png" },
+      { name: "Figma", level: 80, icon: "/skills/figma.png" },
+      { name: "Stripe", level: 80, icon: "/skills/stripe.webp" },
+      { name: "MUI", level: 80, icon: "/skills/mui.png" },
+      { name: "Google", level: 80, icon: "/skills/google.png" },
     ],
   },
 ]
@@ -94,7 +102,7 @@ export function Skills() {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center">
-                      <span className="text-2xl mr-2">{skill.icon}</span>
+                      <span className="mr-2"><img src={skill.icon} className="w-6 h-6"/></span>
                       <span className="font-medium">{skill.name}</span>
                     </div>
                     <span className="text-sm text-muted-foreground">{skill.level}%</span>
@@ -137,7 +145,8 @@ export function Skills() {
                       animate={{ x, y }}
                       transition={{ duration: 0.5 }}
                     >
-                      <span className="text-xl">{skill.icon}</span>
+                      <img src={skill.icon} alt={skill.name} className="" />
+
                     </motion.div>
                   )
                 })}

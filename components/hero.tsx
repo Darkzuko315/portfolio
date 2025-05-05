@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex flex-col items-center justify-center pt-16"
+      className="-ml- relative min-h-screen w-full flex flex-col items-center justify-center pt-16"
       style={{ overflow: "hidden" }}
     >
       <Header />
@@ -45,16 +45,22 @@ export function Hero() {
           
 
           <motion.p
-            className="-mt-20 text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
-          
-              I build modern, responsive web applications using React, Next.js,
-              TypeScript, and other cutting-edge technologies.
-            
-          </motion.p>
+  className="
+    -mt-20 text-base sm:text-xl md:text-2xl
+    text-muted-foreground
+    w-full max-w-[90vw] sm:max-w-xl md:max-w-2xl
+    bg-background/70 dark:bg-background/50
+    px-4 py-3 rounded-lg backdrop-blur-sm shadow-sm
+    break-words text-center
+  "
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.4, duration: 0.5 }}
+>
+  I build modern, responsive web applications using PHP, Laravel, Tailwind, React, Next.js,
+  TypeScript, and other cutting-edge technologies.
+</motion.p>
+
         </motion.div>
 
         <motion.div
