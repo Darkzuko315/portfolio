@@ -12,8 +12,8 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="-ml- relative min-h-screen w-full flex flex-col items-center justify-center pt-16"
-      style={{ overflow: "hidden" }}
+      className=" relative min-h-screen w-full flex flex-col items-center justify-center pt-16"
+      style={{ overflowX: "hidden" }}
     >
 
       <div
@@ -34,7 +34,7 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mb-1"
           >
-            <div className="-ml-20 inline-block relative z-10">
+            <div className=" inline-block relative z-10">
               <span>
                 <HoverBorderGradientButton />
               </span>
@@ -42,7 +42,7 @@ export function Hero() {
           </motion.div>
 
           <TextShimmer
-            className="-mt-36 -ml-20 text-xl font-bold sm:text-xl md:text-2xl
+            className="-mt-36  text-xl font-bold sm:text-xl md:text-2xl
     
     w-full max-w-[90vw] sm:max-w-xl md:max-w-2xl
     bg-background/70 dark:bg-background/50
@@ -60,7 +60,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="-ml-20 flex flex-col sm:flex-row gap-4 mt-8"
+          className=" flex flex-col sm:flex-row gap-4 mt-8"
         >
           <BorderTrailButton
             size="lg"
