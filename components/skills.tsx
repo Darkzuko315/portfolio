@@ -146,7 +146,7 @@ export function Skills() {
                       animate={{ x, y }}
                       transition={{ duration: 0.5 }}
                     >
-                      <img src={skill.icon} alt={skill.name} className="" />
+                      <img src={skill.icon} alt={skill.name} loading="lazy"  />
 
                     </motion.div>
                   )

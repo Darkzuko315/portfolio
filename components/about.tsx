@@ -43,6 +43,7 @@ export function About() {
                 alt="Profile"
                 fill
                 className="object-cover"
+                loading="lazy" 
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
             </div>
