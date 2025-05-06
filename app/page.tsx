@@ -12,17 +12,20 @@ import { Footer } from "@/components/footer";
 import { ParallaxGrid } from "@/components/parallax-grid";
 import { GradientBackground } from "@/components/gradient-background";
 
-// Utility to detect mobile screens
-const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
 
-  const { ref: homeRef, inView: homeInView } = useInView({ threshold: 0.3 });
-  const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.3 });
-  const { ref: skillsRef, inView: skillsInView } = useInView({ threshold: 0.3 });
-  const { ref: projectsRef, inView: projectsInView } = useInView({ threshold: 0.3 });
-  const { ref: contactRef, inView: contactInView } = useInView({ threshold: 0.3 });
+  const { ref: homeRef, inView: homeInView } = useInView({ threshold: 0.5 });
+  const { ref: aboutRef, inView: aboutInView } = useInView({ threshold: 0.5 });
+  const { ref: skillsRef, inView: skillsInView } = useInView({
+    threshold: 0.5,
+  });
+  const { ref: projectsRef, inView: projectsInView } = useInView({
+    threshold: 0.5,
+  });
+  const { ref: contactRef, inView: contactInView } = useInView({
+    threshold: 0.5,
+  });
 
   useEffect(() => {
     if (homeInView) setActiveSection("home");
@@ -36,67 +39,20 @@ export default function Home() {
     <main className="grid-bg flex min-h-screen flex-col items-center bg-background scroll-smooth overflow-x-hidden">
       <Header activeSection={activeSection} />
 
-      {/* Optionally disable heavy visuals on mobile */}
-      {!isMobile && <ParallaxGrid />}
-      {!isMobile && <GradientBackground />}
+      <ParallaxGrid />
+      <GradientBackground />
 
-      <section
-        id="home"
-        ref={homeRef}
-        className="w-full"
-        style={{
-          contentVisibility: "auto",
-          containIntrinsicSize: "1000px",
-        }}
-      >
+      <section id="home" ref={homeRef}>
         <Hero />
       </section>
-
-      <section
-        id="about"
-        ref={aboutRef}
-        className="w-full"
-        style={{
-          contentVisibility: "auto",
-          containIntrinsicSize: "1000px",
-        }}
-      >
+      <section id="about" ref={aboutRef}>
         <About />
       </section>
-
-      <section
-        id="skills"
-        ref={skillsRef}
-        className="w-full"
-        style={{
-          contentVisibility: "auto",
-          containIntrinsicSize: "1000px",
-        }}
-      >
-        <Skills />
-      </section>
-
-      <section
-        id="projects"
-        ref={projectsRef}
-        className="w-full"
-        style={{
-          contentVisibility: "auto",
-          containIntrinsicSize: "1000px",
-        }}
-      >
+      <Skills />
+      <section id="projects" ref={projectsRef}>
         <Projects />
       </section>
-
-      <section
-        id="contact"
-        ref={contactRef}
-        className="w-full"
-        style={{
-          contentVisibility: "auto",
-          containIntrinsicSize: "1000px",
-        }}
-      >
+      <section id="contact" ref={contactRef}>
         <Contact />
       </section>
 

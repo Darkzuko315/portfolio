@@ -6,13 +6,19 @@ import Image from "next/image";
 import { Button } from "./core/moving-border";
 import { useIsMobile } from "@/hooks/useIsMobile";
 
-
 export function About() {
   const isMobile = useIsMobile();
   const MotionDiv = isMobile ? "div" : motion.div;
 
   return (
-    <section id="about" className="py-24 w-full">
+    <section
+      id="about"
+      className="py-24 w-full"
+      style={{
+        contentVisibility: "auto",
+        containIntrinsicSize: "1000px",
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <MotionDiv
           {...(!isMobile && {
@@ -43,12 +49,16 @@ export function About() {
                 alt="Profile"
                 fill
                 className="object-cover"
-                loading="lazy" 
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
-            <div className="absolute -top-4 -left-4 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
+            {!isMobile && (
+              <>
+                <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
+                <div className="absolute -top-4 -left-4 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
+              </>
+            )}
           </MotionDiv>
 
           <MotionDiv
