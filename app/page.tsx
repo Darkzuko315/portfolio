@@ -36,7 +36,7 @@ export default function Home() {
   }, [homeInView, aboutInView, skillsInView, projectsInView, contactInView]);
 
   return (
-    <main className="grid-bg flex min-h-screen flex-col items-center bg-background scroll-smooth">
+    <main className="grid-bg flex min-h-screen flex-col items-center bg-background scroll-smooth overflow-x-hidden">
       <Header activeSection={activeSection} />
 
       <ParallaxGrid />
