@@ -17,7 +17,7 @@ export function Hero() {
     >
 
       <div
-        className="w-[650px] h-[600px] mb-8
+        className="overflow-x-hidden w-[650px] h-[600px] mb-8
       bg-[url('/assets/mainIcons.svg')] 
       dark:bg-[url('/assets/mainIconsdark.svg')]
       bg-no-repeat bg-contain bg-center container mx-auto flex flex-col items-center text-center z-10 px-4 sm:px-6 lg:px-8"
