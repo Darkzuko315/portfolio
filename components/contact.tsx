@@ -1,14 +1,13 @@
-"use client"
+"use client";
 
-import type React from "react"
-
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { BorderTrailButton } from "@/components/border-trail-button"
-import { BorderTrailCard } from "@/components/border-trail-card"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send } from "lucide-react"
+import type React from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { BorderTrailButton } from "@/components/border-trail-button";
+import { BorderTrailCard } from "@/components/border-trail-card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -16,32 +15,46 @@ export function Contact() {
     email: "",
     subject: "",
     message: "",
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitSuccess, setSubmitSuccess] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(false);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    setIsSubmitting(false)
-    setSubmitSuccess(true)
+      if (!res.ok) throw new Error("Failed to send");
 
-    // Reset form after success
-    setTimeout(() => {
-      setSubmitSuccess(false)
-      setFormData({ name: "", email: "", subject: "", message: "" })
-    }, 3000)
-  }
+      setSubmitSuccess(true);
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setSubmitError(true);
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => {
+        setSubmitSuccess(false);
+        setSubmitError(false);
+      }, 5000);
+    }
+  };
 
   return (
     <section id="contact" className="py-24 w-full">
@@ -56,7 +69,8 @@ export function Contact() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">Get In Touch</h2>
           <div className="h-1 w-20 bg-primary mx-auto rounded-full"></div>
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+            Have a project in mind or want to discuss potential opportunities?
+            Feel free to reach out!
           </p>
         </motion.div>
 
@@ -68,10 +82,13 @@ export function Contact() {
             viewport={{ once: true, margin: "-100px" }}
           >
             <BorderTrailCard>
-              <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-6">
+                Contact Information
+              </h3>
               <p className="text-muted-foreground mb-8">
-                Feel free to reach out through any of the following channels. I'm always open to discussing new
-                projects, creative ideas, or opportunities to be part of your vision.
+                Feel free to reach out through any of the following channels.
+                I'm always open to discussing new projects, creative ideas, or
+                opportunities to be part of your vision.
               </p>
 
               <div className="space-y-6">
@@ -96,7 +113,10 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium">Phone</h4>
-                    <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
+                    <a
+                      href="tel:+1234567890"
+                      className="text-muted-foreground hover:text-primary transition-colors"
+                    >
                       +234 (***) ***-****
                     </a>
                   </div>
@@ -183,7 +203,12 @@ export function Contact() {
                     className="bg-background border-border"
                   />
                 </div>
-                <BorderTrailButton type="submit" className="w-full" disabled={isSubmitting}>
+
+                <BorderTrailButton
+                  type="submit"
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? (
                     "Sending..."
                   ) : submitSuccess ? (
@@ -194,11 +219,25 @@ export function Contact() {
                     </span>
                   )}
                 </BorderTrailButton>
+
+                {/* ✅ Success Message */}
+                {submitSuccess && (
+                  <div className="text-sm text-green-600 font-medium mt-2 text-center">
+                    ✅ Your message has been sent successfully!
+                  </div>
+                )}
+
+                {/* ❌ Error Message */}
+                {submitError && (
+                  <div className="text-sm text-red-600 font-medium mt-2 text-center">
+                    ❌ Oops! Something went wrong. Please try again.
+                  </div>
+                )}
               </form>
             </BorderTrailCard>
           </motion.div>
         </div>
       </div>
     </section>
-  )
+  );
 }

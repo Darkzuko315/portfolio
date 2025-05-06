@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { BorderTrailButton } from "@/components/border-trail-button";
-import { Header } from "@/components/header";
 import { HoverBorderGradientButton } from "./animation/hover-border-gradient";
 import { TextShimmer } from "./core/text-effect";
 import { GlowEffect } from "./core/button-glow";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -15,7 +15,6 @@ export function Hero() {
       className="-ml- relative min-h-screen w-full flex flex-col items-center justify-center pt-16"
       style={{ overflow: "hidden" }}
     >
-      <Header />
 
       <div
         className="w-[650px] h-[600px] mb-8
@@ -80,7 +79,7 @@ export function Hero() {
         scale={0.9}
       />
       <button className='w-40 h-11 bg-primary flex justify-center text-center relative items-center gap-1 rounded-md bg-zinc-950 px-2.5 py-1.5 text-sm text-zinc-50 outline outline-1 outline-[#fff2f21f]'>
-        <a href="#contact">Contact Me</a> 
+        <Link href="#contact">Contact Me</Link> 
       </button>
     </div>
 

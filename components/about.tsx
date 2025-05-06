@@ -29,7 +29,7 @@ export function About() {
             className="relative"
           >
             <div className="aspect-square relative rounded-2xl overflow-hidden border border-border">
-              <Image src="/placeholder.svg?height=600&width=600" alt="Profile" fill className="object-cover" />
+              <Image src="/me/bh.jpg?height=600&width=600" alt="Profile" fill className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
             </div>
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/10 rounded-full blur-2xl" />
