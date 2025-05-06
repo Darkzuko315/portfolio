@@ -42,7 +42,7 @@ export function Hero() {
           </motion.div>
 
           <TextShimmer
-            className="-mt-36  text-xl font-bold sm:text-xl md:text-2xl
+            className="-mt-36 text-xl font-bold sm:text-xl sm:-ml-14 md:text-2xl
     
     w-full max-w-[90vw] sm:max-w-xl md:max-w-2xl
     bg-background/70 dark:bg-background/50
