@@ -33,7 +33,7 @@ const skills = [
   {
     category: "Tools",
     items: [
-      { name: "Git", level: 85, icon: "/skills/lockMain.png" },
+      { name: "Git", level: 85, icon: "/skills/git.svg" },
       { name: "Docker", level: 70, icon: "/skills/docker.webp" },
       { name: "Firebase", level: 65, icon: "/skills/firebase.png" },
       { name: "Auth", level: 75, icon: "/skills/logo-sm.png" },
@@ -41,6 +41,7 @@ const skills = [
       { name: "Stripe", level: 80, icon: "/skills/stripe.webp" },
       { name: "MUI", level: 80, icon: "/skills/mui.png" },
       { name: "Google", level: 80, icon: "/skills/google.png" },
+          { name: "Photoshop", level: 80, icon: "/skills/ps.svg" },
     ],
   },
 ]

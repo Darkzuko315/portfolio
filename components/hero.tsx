@@ -5,7 +5,8 @@ import { ArrowDown } from "lucide-react";
 import { BorderTrailButton } from "@/components/border-trail-button";
 import { Header } from "@/components/header";
 import { HoverBorderGradientButton } from "./animation/hover-border-gradient";
-
+import { TextShimmer } from "./core/text-effect";
+import { GlowEffect } from "./core/button-glow";
 
 export function Hero() {
   return (
@@ -34,57 +35,56 @@ export function Hero() {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="mb-1"
           >
-            <div className="inline-block relative z-10">
+            <div className="-ml-20 inline-block relative z-10">
               <span>
                 <HoverBorderGradientButton />
               </span>
-              
             </div>
           </motion.div>
 
-          
-
-          <motion.p
-  className="
-    -mt-20 text-base sm:text-xl md:text-2xl
-    text-muted-foreground
+          <TextShimmer
+            className="-mt-36 -ml-20 text-xl font-bold sm:text-xl md:text-2xl
+    
     w-full max-w-[90vw] sm:max-w-xl md:max-w-2xl
     bg-background/70 dark:bg-background/50
-    px-4 py-3 rounded-lg backdrop-blur-sm shadow-sm
-    break-words text-center
-  "
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.4, duration: 0.5 }}
->
-  I build modern, responsive web applications using PHP, Laravel, Tailwind, React, Next.js,
-  TypeScript, and other cutting-edge technologies.
-</motion.p>
-
+    px-4 py-3 rounded-lg  shadow-sm
+    break-words text-center"
+            duration={1}
+          >
+            I build modern, responsive web applications using PHP, Laravel,
+            Tailwind, React, Next.js, TypeScript, and other cutting-edge
+            technologies.
+          </TextShimmer>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="flex flex-col sm:flex-row gap-4 mt-8"
+          className="-ml-20 flex flex-col sm:flex-row gap-4 mt-8"
         >
           <BorderTrailButton
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground"
             trailColor="rgba(59, 130, 246, 0.3)"
           >
-            <a href="#projects">View My Work</a>
+            <a href="#projects">Projects</a>
           </BorderTrailButton>
 
-          <BorderTrailButton
-            size="lg"
-            variant="outline"
-            className="border-primary/20 text-primary hover:bg-primary/5"
-            trailColor="rgba(59, 130, 246, 0.2)"
-          >
-            <a href="#contact">Contact Me</a>
-          </BorderTrailButton>
+           <div className='relative'>
+      <GlowEffect
+        colors={['#FF5733', '#33FF57', '#3357FF', '#F1C40F']}
+        mode='colorShift'
+        blur='soft'
+        duration={3}
+        scale={0.9}
+      />
+      <button className='w-40 h-11 bg-primary flex justify-center text-center relative items-center gap-1 rounded-md bg-zinc-950 px-2.5 py-1.5 text-sm text-zinc-50 outline outline-1 outline-[#fff2f21f]'>
+        <a href="#contact">Contact Me</a> 
+      </button>
+    </div>
+
+          
         </motion.div>
 
         <motion.div

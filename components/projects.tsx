@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ExternalLink, Github } from "lucide-react"
 import { BorderTrailCard } from "@/components/border-trail-card"
 import { BorderTrailButton } from "@/components/border-trail-button"
 
@@ -12,7 +11,7 @@ const projects = [
     title: "Modern E-commerce Platform",
     description:
       "A full-featured e-commerce platform with product management, cart functionality, and secure checkout process.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/port/4.png?height=400&width=600",
     tags: ["React", "Next.js", "Stripe", "Tailwind CSS"],
     demoLink: "#",
     githubLink: "#",
@@ -20,10 +19,10 @@ const projects = [
   },
   {
     id: 2,
-    title: "Portfolio Website",
-    description: "A modern portfolio website with smooth animations and responsive design.",
-    image: "/placeholder.svg?height=400&width=600",
-    tags: ["React", "Framer Motion", "Tailwind CSS"],
+    title: "Saloon Website",
+    description: "A modern saloon website with smooth animations and responsive design.",
+    image: "/port/2.png?height=400&width=600",
+    tags: ["HTML & JS", "PS", "Tailwind CSS"],
     demoLink: "#",
     githubLink: "#",
     category: "frontend",
@@ -33,7 +32,7 @@ const projects = [
     title: "Task Management API",
     description:
       "A RESTful API for task management with authentication, task CRUD operations, and team collaboration features.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/port/5.png?height=400&width=600",
     tags: ["Node.js", "Express", "MongoDB", "JWT"],
     demoLink: "#",
     githubLink: "#",
@@ -43,8 +42,19 @@ const projects = [
     id: 4,
     title: "Weather Dashboard",
     description: "A weather dashboard that displays current and forecasted weather data for multiple locations.",
-    image: "/placeholder.svg?height=400&width=600",
+    image: "/port/3.png?height=400&width=600",
     tags: ["React", "OpenWeather API", "Chart.js", "Tailwind"],
+    demoLink: "#",
+    githubLink: "#",
+    category: "frontend",
+  },
+
+  {
+    id: 5,
+    title: "Trading Dashboard",
+    description: "A trading dashboard that displays real time trading data for multiple cryptocurrencies.",
+    image: "/port/1.jpg?height=400&width=600",
+    tags: ["PHP", "MySql", "Axios", "JS", "HTML & CSS3"],
     demoLink: "#",
     githubLink: "#",
     category: "frontend",
@@ -126,20 +136,7 @@ export function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-3 mt-auto">
-                  <BorderTrailButton variant="outline" size="sm" className="flex items-center gap-1">
-                    <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2" />
-                      Code
-                    </a>
-                  </BorderTrailButton>
-                  <BorderTrailButton size="sm" className="flex items-center gap-1">
-                    <a href={project.demoLink} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </a>
-                  </BorderTrailButton>
-                </div>
+                
               </BorderTrailCard>
             ))}
           </motion.div>

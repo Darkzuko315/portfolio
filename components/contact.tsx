@@ -85,7 +85,7 @@ export function Contact() {
                       href="mailto:contact@example.com"
                       className="text-muted-foreground hover:text-primary transition-colors"
                     >
-                      contact@example.com
+                      officialbankyhush@gmail.com
                     </a>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ export function Contact() {
                   <div>
                     <h4 className="text-lg font-medium">Phone</h4>
                     <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">
-                      +1 (234) 567-890
+                      +234 (***) ***-****
                     </a>
                   </div>
                 </div>
@@ -108,7 +108,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="text-lg font-medium">Location</h4>
-                    <p className="text-muted-foreground">San Francisco, CA</p>
+                    <p className="text-muted-foreground">VGC, Nigeria</p>
                   </div>
                 </div>
               </div>

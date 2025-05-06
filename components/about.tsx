@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { BorderTrailCard } from "@/components/border-trail-card"
 import Image from "next/image"
+import { Button } from "./core/moving-border"
 
 export function About() {
   return (
@@ -35,14 +36,25 @@ export function About() {
             <div className="absolute -top-4 -left-4 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl" />
           </motion.div>
 
+          
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            <BorderTrailCard>
-              <h3 className="text-2xl font-semibold mb-4">Who I Am</h3>
+            <BorderTrailCard className='bg-linear-to-l from-blue-200 via-blue-500 to-blue-200 dark:from-blue-400 dark:via-blue-500 dark:to-blue-700'>
+
+              <div className="mb-4">
+      <Button
+        borderRadius="1.75rem"
+        className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 "
+      >
+        <h3 className="text-2xl font-semibold">Who I Am</h3>
+      </Button>
+    </div>
+             
               <p className="text-muted-foreground leading-relaxed mb-4">
                 I'm a passionate Full Stack Developer with expertise in both frontend and backend technologies. I love
                 creating elegant, efficient, and user-friendly web applications that solve real-world problems.
